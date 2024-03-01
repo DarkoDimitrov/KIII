@@ -1,0 +1,18 @@
+function add_to (f){
+    let parameters = [];
+
+    return {
+        insert: function (param) {
+            parameters.push(param); 
+            if(parameters.length == 2){ 
+                let result = f(parameters[0], parameters[1]); 
+                parameters = [result]; 
+            }else {
+                return 0;
+            }
+        },
+        result: function () {
+           return parameters[0];
+        }
+    };
+}
